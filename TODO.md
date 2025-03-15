@@ -1,5 +1,4 @@
 - Chatbot.
-- Update README.md.
 - Update skills.
 - Update roles.
 - Include about page?
