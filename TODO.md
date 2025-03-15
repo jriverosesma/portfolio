@@ -1,11 +1,5 @@
 - Chatbot.
-- Portrait photo.
-- Dark or light default theme.
-- README.md.
-- GH pages deployment.
-- favicon.svg
-- Delete tsconfig.json?
-- Include email?
+- Update README.md.
 - Update skills.
 - Update roles.
 - Include about page?
