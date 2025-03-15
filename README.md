@@ -2,9 +2,9 @@
 
 Welcome to my personal web portfolio built using [Astro](https://astro.build/).
 
-Visit my portfolio at [https://jriverosesma.github.io/portfolio/](https://jriverosesma.github.io/portfolio/).
+Visit my portfolio at [https://jriverosesma.github.io/portfolio](https://jriverosesma.github.io/portfolio).
 
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
