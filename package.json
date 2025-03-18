@@ -6,8 +6,7 @@
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "prepare": "husky install"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
