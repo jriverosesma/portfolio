@@ -1,0 +1,9 @@
+# Exclude node_modules as we install them inside the container
+node_modules/
+
+# Astro generated types
+.astro/
+
+# Exclude build artifacts
+dist/
+build/
