@@ -1,11 +1,14 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import ContactCTA from '../components/ContactCTA.astro';
-import Hero from '../components/Hero.astro';
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<BaseLayout title="About | Juan Rivero Sesma" description="About Juan Rivero Sesma Lorem Ipsum">
+<BaseLayout
+	title="About | Juan Rivero Sesma"
+	description="About Juan Rivero Sesma Lorem Ipsum"
+>
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
@@ -15,7 +18,7 @@ import Hero from '../components/Hero.astro';
 				<img
 					width="1553"
 					height="873"
-					src="/portfolio/assets/at-work.jpg"
+					src="assets/at-work.jpg"
 					alt="Juan Rivero Sesma at work with a colleague"
 				/>
 			</Hero>
@@ -24,22 +27,30 @@ import Hero from '../components/Hero.astro';
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						Lorem ipsum dolor sit amet, <a
+							href="https://astro.build/">Astro</a
+						> makes people happy. Sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Proin nibh nisl condimentum
+						id venenatis a condimentum vitae. Dapibus ultrices in iaculis
+						nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam
+						quis enim lobortis scelerisque fermentum dui faucibus in
+						ornare.
 					</p>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
+						Arcu dui vivamus arcu felis bibendum ut tristique et
+						egestas. Eget gravida cum sociis natoque penatibus. Cras
+						fermentum odio eu feugiat pretium nibh. Proin nibh nisl
+						condimentum id venenatis. Porta nibh venenatis cras sed
+						felis eget velit. Id diam vel quam elementum pulvinar
+						etiam non.
 					</p>
 					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						Ultrices tincidunt arcu non sodales neque sodales ut.
+						Sed enim ut sem viverra aliquet eget sit amet. Lacus
+						luctus accumsan tortor posuere ac ut consequat semper
+						viverra. Viverra accumsan in nisl nisi scelerisque eu
+						ultrices. In massa tempor nec feugiat nisl pretium
+						fusce.
 					</p>
 				</div>
 			</section>

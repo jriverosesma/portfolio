@@ -1,16 +1,15 @@
 ---
-
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Component Imports
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
 
 // Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
+import ContactCTA from "../components/ContactCTA.astro";
+import Skills from "../components/Skills.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -26,9 +25,14 @@ import Skills from '../components/Skills.astro';
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill
+						>
+						<Pill
+							><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill
+						>
+						<Pill
+							><Icon icon="pencil-line" size="1.33em" /> Writer</Pill
+						>
 					</div>
 				</Hero>
 
@@ -36,7 +40,7 @@ import Skills from '../components/Skills.astro';
 					alt="Portrait"
 					width="480"
 					height="620"
-					src="/portfolio/assets/portrait.jpg"
+					src="assets/portrait.jpg"
 				/>
 			</header>
 
@@ -102,7 +106,7 @@ import Skills from '../components/Skills.astro';
 	.with-background::before {
 		--hero-bg: var(--bg-image-subtle-2);
 
-		content: '';
+		content: "";
 		position: absolute;
 		pointer-events: none;
 		left: 50%;
@@ -111,7 +115,7 @@ import Skills from '../components/Skills.astro';
 		top: 0;
 		transform: translateY(-75%) translateX(-50%);
 		background:
-			url('/portfolio/assets/backgrounds/noise.png') top center/220px repeat,
+			url("assets/backgrounds/noise.png") top center/220px repeat,
 			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
 			var(--gray-999);
 		background-blend-mode: overlay, normal, normal, normal;
@@ -138,12 +142,12 @@ import Skills from '../components/Skills.astro';
 	@media (min-width: 50em) {
 		.section {
 			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			grid-template-areas: "header header header header" "gallery gallery gallery gallery";
 			gap: 5rem;
 		}
 
 		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+			grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
 		}
 
 		.section-header {

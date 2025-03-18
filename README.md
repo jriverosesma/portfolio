@@ -1,8 +1,10 @@
 # My personal web portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1223f3f0-623b-4184-a523-aa03fc624aee/deploy-status)](https://app.netlify.com/sites/jriverosesma/deploys)
+
 Welcome to my personal web portfolio built using [Astro](https://astro.build/).
 
-Visit my portfolio at [https://jriverosesma.github.io/portfolio](https://jriverosesma.github.io/portfolio).
+Visit my portfolio at [https://jriverosesma.netlify.app](https://jriverosesma.netlify.app).
 
 ## Commands
 
