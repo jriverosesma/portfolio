@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: ./src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json

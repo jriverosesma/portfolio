@@ -1,7 +1,9 @@
 {
   "name": "Astro Portfolio Development Environment",
   "dockerFile": "../Dockerfile",
-  "context": "..",
+  "dockerComposeFile": "../compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
       "settings": {
@@ -16,6 +18,8 @@
       ]
     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [
+    3000
+  ],
   "postCreateCommand": "npm run dev"
 }
