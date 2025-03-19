@@ -1,5 +1,0 @@
-- Chatbot.
-- Update skills.
-- Update roles.
-- Include about page?
-- Update devcontainer.json.
