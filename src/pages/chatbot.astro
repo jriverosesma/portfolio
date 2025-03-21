@@ -1,48 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import ContactCTA from '../components/ContactCTA.astro'
 ---
 
 <BaseLayout
-  title="ChatBot | Juan Rivero Sesma"
+  title="Juan's personal ChatBot assistant"
   description="Simple ChatBot example using Netlify functions"
 >
   <div class="stack gap-20">
     <main class="wrapper about">
-      <!-- Page header / hero section (optional) -->
       <section>
-        <h2 class="section-title">ChatBot</h2>
+        <!-- Page heading with an icon next to it -->
+        <h2 class="section-title">
+          Juan's personal ChatBot assistant
+          <img src="/assets/chat-icon.svg" alt="Chat icon" class="chat-icon" />
+        </h2>
         <div class="content">
+          <!-- Subtitle plus "last updated" info -->
           <p class="content-subtitle">
-            Ask a question based on the LinkedIn profile. Last updated:
-            21.03.2025
+            Ask a question based on the LinkedIn profile
+            <br />
+            <em>Last updated: March 21, 2025</em>
           </p>
-          <!-- The ChatBot UI -->
-          <form id="chat-form" style="margin-bottom: 1rem;">
-            <label for="message" style="margin-right: 0.5rem;">
-              I am Juan's personal AI assistant. Type your question:
-            </label>
-            <input
-              type="text"
-              id="message"
-              name="message"
-              required
-              placeholder="e.g. Tell me about your experience..."
-              style="width: 50%;"
-            />
-            <button type="submit"> Send </button>
-          </form>
-          <div id="chat-response">
-            <!-- Chatbot's reply will be injected here -->
+
+          <!-- Chat Container -->
+          <div class="chat-container">
+            <!-- The ChatBot UI -->
+            <form id="chat-form" class="chat-form">
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="3"
+                placeholder="e.g. Tell me about your experience..."></textarea>
+              <button type="submit" class="chat-submit">Send</button>
+            </form>
+
+            <!-- Where we show the chatbot's reply -->
+            <div id="chat-response" class="chat-response"></div>
           </div>
         </div>
       </section>
     </main>
-    <ContactCTA />
   </div>
 
-  <!-- Copy the same style block from about.astro (with minor additions) -->
   <style>
+    /* --- Existing about page styles --- */
     .about {
       display: flex;
       flex-direction: column;
@@ -60,6 +62,9 @@ import ContactCTA from '../components/ContactCTA.astro'
       grid-column-start: 1;
       font-size: var(--text-xl);
       color: var(--gray-0);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .content {
@@ -79,29 +84,90 @@ import ContactCTA from '../components/ContactCTA.astro'
       margin-bottom: 0.75rem;
     }
 
-    /* Optional: style the chatbot's response container for clarity */
-    #chat-response {
-      background: var(--gray-900);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      min-height: 4rem; /* Some space for the reply */
-      margin-top: 1rem;
-    }
-
     @media (min-width: 50em) {
       .about {
         display: grid;
         grid-template-columns: 1fr 60% 1fr;
       }
-
       .about > :global(:first-child) {
         grid-column-start: 2;
       }
-
       section {
         display: contents;
         font-size: var(--text-lg);
       }
+    }
+
+    /* --- New Chat-Specific Styles --- */
+
+    /* Icon next to the section title */
+    .chat-icon {
+      width: 1.5rem;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .chat-container {
+      background: var(--gray-900);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .chat-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Style the textarea for user input */
+    .chat-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--gray-200);
+      background: var(--gray-0);
+      color: var(--gray-900);
+      font-size: var(--text-md);
+      resize: vertical;
+      min-height: 3rem;
+      line-height: 1.4;
+    }
+    .chat-form textarea::placeholder {
+      color: var(--gray-200);
+    }
+
+    /* The submit button */
+    .chat-submit {
+      align-self: flex-end;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: var(--text-md);
+      font-weight: 600;
+      cursor: pointer;
+
+      /* If you have a --primary-500 color, you can use it here: */
+      background: var(--primary-500);
+      color: var(--gray-0);
+
+      transition: background 0.2s ease;
+    }
+    .chat-submit:hover {
+      filter: brightness(0.9);
+    }
+
+    /* The chat bubble for chatbot responses */
+    .chat-response {
+      background: var(--gray-800);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      min-height: 3rem;
+      line-height: 1.5;
+      color: var(--gray-0);
     }
   </style>
 
@@ -112,8 +178,8 @@ import ContactCTA from '../components/ContactCTA.astro'
       .addEventListener('submit', async (e) => {
         e.preventDefault()
 
-        const input = document.querySelector('#message')
-        const message = input.value.trim()
+        const textarea = document.querySelector('#message')
+        const message = textarea.value.trim()
         if (!message) return
 
         try {
@@ -129,8 +195,7 @@ import ContactCTA from '../components/ContactCTA.astro'
             'Error: ' + (err.message || 'Unknown error')
         }
 
-        // Clear input
-        input.value = ''
+        textarea.value = ''
       })
   </script>
 </BaseLayout>
