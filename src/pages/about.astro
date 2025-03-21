@@ -26,8 +26,8 @@ import Hero from '../components/Hero.astro'
       <section>
         <h2 class="section-title">Work</h2>
         <div class="content">
-          <h5>Airbus</h5>
-          <p><strong>Machine Learning Work-Package Leader</strong></p>
+          <h3 class="content-title"></h3>
+          <h4 class="content-subtitle">Machine Learning Work-Package Leader</h4>
           <p>
             Core developer and leader of a passionate R&T team tasked to
             conceive and develop embeddable and certifiable ML-powered
@@ -41,10 +41,8 @@ import Hero from '../components/Hero.astro'
             ML solution design + Compression (quantization/pruning) + Real/Synth
             data blending + AWS/Slurm.
           </p><br />
-          <h5>Collins Aerospace</h5>
-          <p>
-            <strong>Machine Learning Engineer</strong>
-          </p>
+          <h3 class="content-title">Collins Aerospace</h3>
+          <h4 class="content-subtitle">Machine Learning Engineer</h4>
           <p>
             Design and implementation of a helicopter real-time AI system for
             obstacle detection.
@@ -57,13 +55,13 @@ import Hero from '../components/Hero.astro'
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <h5>MSc in Computer Science</h5>
-          <p><strong>ISAE Supaero, France</strong></p>
+          <h3 class="content-title">MSc in Computer Science</h3>
+          <h4 class="content-subtitle">ISAE Supaero, France</h4>
           <p>Minor: Autonomous Systems and Drones.</p><br />
-          <h5>BSc in Aerospace Engineering</h5>
-          <p>
-            <strong>Universidad Politécnica de Madrid, Spain</strong>
-          </p>
+          <h3 class="content-title">BSc in Aerospace Engineering</h3>
+          <h4 class="content-subtitle">
+            Universidad Politécnica de Madrid, Spain
+          </h4>
         </div>
       </section>
       <section>
@@ -79,62 +77,75 @@ import Hero from '../components/Hero.astro'
 
     <ContactCTA />
   </div>
-</BaseLayout>
 
-<style>
-  .about {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-  }
-
-  img {
-    margin-top: 1.5rem;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: var(--gray-200);
-  }
-
-  .section-title {
-    grid-column-start: 1;
-    font-size: var(--text-xl);
-    color: var(--gray-0);
-  }
-
-  .content {
-    grid-column: 2 / 4;
-  }
-
-  .content :global(a) {
-    text-decoration: 1px solid underline transparent;
-    text-underline-offset: 0.25em;
-    transition: text-decoration-color var(--theme-transition);
-  }
-
-  .content :global(a:hover),
-  .content :global(a:focus) {
-    text-decoration-color: currentColor;
-  }
-
-  @media (min-width: 50em) {
+  <style>
     .about {
-      display: grid;
-      grid-template-columns: 1fr 60% 1fr;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
     }
 
-    .about > :global(:first-child) {
-      grid-column-start: 2;
+    img {
+      margin-top: 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-md);
     }
 
     section {
-      display: contents;
-      font-size: var(--text-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--gray-200);
     }
-  }
-</style>
+
+    .section-title {
+      grid-column-start: 1;
+      font-size: var(--text-xl);
+      color: var(--gray-0);
+    }
+
+    .content {
+      grid-column: 2 / 4;
+    }
+
+    .content :global(a) {
+      text-decoration: 1px solid underline transparent;
+      text-underline-offset: 0.25em;
+      transition: text-decoration-color var(--theme-transition);
+    }
+
+    .content :global(a:hover),
+    .content :global(a:focus) {
+      text-decoration-color: currentColor;
+    }
+
+    .content-title {
+      font-size: var(--text-lg);
+      color: var(--gray-0);
+      font-weight: 700;
+    }
+
+    .content-subtitle {
+      font-size: var(--text-md);
+      color: var(--gray-200);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 50em) {
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 60% 1fr;
+      }
+
+      .about > :global(:first-child) {
+        grid-column-start: 2;
+      }
+
+      section {
+        display: contents;
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+</BaseLayout>
