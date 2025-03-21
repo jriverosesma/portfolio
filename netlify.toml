@@ -1,0 +1,16 @@
+[dev]
+  # The command Netlify runs to start the site
+  command = "npm run dev"
+
+  # The port Astro server is listening on
+  targetPort = 3000
+
+  # The port Netlify Dev itself will be served on (the proxy)
+  port = 8888
+
+[functions]
+  directory = "netlify/functions"
+
+[build]
+  publish = "dist"
+  command = "npm run build"

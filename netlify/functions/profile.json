@@ -1,0 +1,11 @@
+{
+  "last_updated": "March 21, 2025",
+  "name": "Juan Rivero Sesma",
+  "headline": "Software Engineer at XYZ",
+  "experience": [
+    { "company": "XYZ", "role": "Software Engineer", "years": "2020-Present" },
+    { "company": "ABC", "role": "Web Developer", "years": "2018-2020" }
+  ],
+  "skills": ["JavaScript", "React", "Astro", "AI"],
+  "education": "Bachelor’s in Computer Science from ABC University"
+}

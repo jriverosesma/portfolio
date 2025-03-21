@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ContactCTA from '../components/ContactCTA.astro'
+---
+
+<BaseLayout
+  title="ChatBot | Juan Rivero Sesma"
+  description="Simple ChatBot example using Netlify functions"
+>
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <!-- Page header / hero section (optional) -->
+      <section>
+        <h2 class="section-title">ChatBot</h2>
+        <div class="content">
+          <p class="content-subtitle">
+            Ask a question based on the LinkedIn profile. Last updated:
+            21.03.2025
+          </p>
+          <!-- The ChatBot UI -->
+          <form id="chat-form" style="margin-bottom: 1rem;">
+            <label for="message" style="margin-right: 0.5rem;">
+              I am Juan's personal AI assistant. Type your question:
+            </label>
+            <input
+              type="text"
+              id="message"
+              name="message"
+              required
+              placeholder="e.g. Tell me about your experience..."
+              style="width: 50%;"
+            />
+            <button type="submit"> Send </button>
+          </form>
+          <div id="chat-response">
+            <!-- Chatbot's reply will be injected here -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <ContactCTA />
+  </div>
+
+  <!-- Copy the same style block from about.astro (with minor additions) -->
+  <style>
+    .about {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--gray-200);
+    }
+
+    .section-title {
+      grid-column-start: 1;
+      font-size: var(--text-xl);
+      color: var(--gray-0);
+    }
+
+    .content {
+      grid-column: 2 / 4;
+    }
+
+    .content-title {
+      font-size: var(--text-lg);
+      color: var(--gray-0);
+      font-weight: 700;
+    }
+
+    .content-subtitle {
+      font-size: var(--text-md);
+      color: var(--gray-200);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Optional: style the chatbot's response container for clarity */
+    #chat-response {
+      background: var(--gray-900);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      min-height: 4rem; /* Some space for the reply */
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 50em) {
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 60% 1fr;
+      }
+
+      .about > :global(:first-child) {
+        grid-column-start: 2;
+      }
+
+      section {
+        display: contents;
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+
+  <!-- The script to POST user input to your Netlify function -->
+  <script>
+    document
+      .querySelector('#chat-form')
+      .addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        const input = document.querySelector('#message')
+        const message = input.value.trim()
+        if (!message) return
+
+        try {
+          const res = await fetch('/.netlify/functions/chatbot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message }),
+          })
+          const data = await res.json()
+          document.getElementById('chat-response').textContent = data.reply
+        } catch (err) {
+          document.getElementById('chat-response').textContent =
+            'Error: ' + (err.message || 'Unknown error')
+        }
+
+        // Clear input
+        input.value = ''
+      })
+  </script>
+</BaseLayout>
