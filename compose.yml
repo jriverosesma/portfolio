@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   app:
     build: .
@@ -6,8 +7,26 @@ services:
       watch:
         - action: sync
           path: ./src
-          target: ./src
+          target: /app/src
           ignore:
             - node_modules/
+            - .git/
+
+        - action: sync
+          path: ./netlify
+          target: /app/netlify
+          ignore:
+            - node_modules/
+            - .git/
+
+        - action: sync
+          path: ./assets
+          target: /app/assets
+          ignore:
+            - node_modules/
+            - .git/
+
         - action: rebuild
           path: package.json
+          ignore:
+            - .git/
