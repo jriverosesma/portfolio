@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1223f3f0-623b-4184-a523-aa03fc624aee/deploy-status)](https://app.netlify.com/sites/jriverosesma/deploys)
 
-Welcome to my web portfolio including a personal chatbot assistant 🌐
+Welcome to my web portfolio including a personal ChatBot assistant 🌐
 
 - Built using: [Astro](https://astro.build/).
 - Deployed on: [Netlify](https://www.netlify.com/).
