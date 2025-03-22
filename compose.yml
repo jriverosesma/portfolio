@@ -20,8 +20,8 @@ services:
             - .git/
 
         - action: sync
-          path: ./assets
-          target: /app/assets
+          path: ./public
+          target: /app/public
           ignore:
             - node_modules/
             - .git/
