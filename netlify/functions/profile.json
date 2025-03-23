@@ -1,11 +1,24 @@
 {
   "last_updated": "March 21, 2025",
   "name": "Juan Rivero Sesma",
-  "headline": "Software Engineer at XYZ",
+  "headline": "Creating business opportunities, building pioneering applications and shaping the future of Airbus aircraft using Artificial Intelligence. IT enthusiast and lifelong learner. My main fields of interest are Data Science and Computer Vision.",
   "experience": [
-    { "company": "XYZ", "role": "Software Engineer", "years": "2020-Present" },
-    { "company": "ABC", "role": "Web Developer", "years": "2018-2020" }
+    {
+      "company": "Airbus",
+      "role": "Machine Learning Engineer",
+      "years": "2021-Present"
+    },
+    {
+      "company": "Collins Aerospacde",
+      "role": "Machine Learning Engineer",
+      "years": "April 2021-  October 2020"
+    }
   ],
-  "skills": ["JavaScript", "React", "Astro", "AI"],
-  "education": "Bachelor’s in Computer Science from ABC University"
+  "skills": [
+    "Machine Learning",
+    "Computer Vision",
+    "Natural Language Processing",
+    "Software development"
+  ],
+  "education": "MSc in Computer Science from ISAE Supaero, Toulouse (France)"
 }

@@ -1,27 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+
+import ContactCTA from '../components/ContactCTA.astro'
+import Hero from '../components/Hero.astro'
+import profile from '../../netlify/functions/profile.json'
 ---
 
 <BaseLayout
   title="Juan's personal ChatBot assistant"
-  description="Simple ChatBot example using Netlify functions"
+  description="Personal ChatBot using Google's Gemini API and Netlify functions"
 >
   <div class="stack gap-20">
     <main class="wrapper about">
+      <header class="hero">
+        <Hero
+          title="ChatBot"
+          tagline="I am Juan's personal ChatBot assistant."
+          align="start"
+        />
+      </header>
       <section>
-        <!-- Page heading with an icon next to it -->
-        <h2 class="section-title">
-          Juan's personal ChatBot assistant
-          <img src="/assets/chat-icon.svg" alt="Chat icon" class="chat-icon" />
-        </h2>
+        <h1 class="section-title">
+          <img src="/assets/chatbot.webp" alt="Chat icon" class="chat-icon" />
+        </h1>
         <div class="content">
-          <!-- Subtitle plus "last updated" info -->
-          <p class="content-subtitle">
-            Ask a question based on the LinkedIn profile
-            <br />
-            <em>Last updated: March 21, 2025</em>
-          </p>
-
           <!-- Chat Container -->
           <div class="chat-container">
             <!-- The ChatBot UI -->
@@ -31,16 +33,22 @@ import BaseLayout from '../layouts/BaseLayout.astro'
                 name="message"
                 required
                 rows="3"
-                placeholder="e.g. Tell me about your experience..."></textarea>
+                placeholder="e.g. Tell me about Juan's experience..."
+              ></textarea>
               <button type="submit" class="chat-submit">Send</button>
             </form>
 
             <!-- Where we show the chatbot's reply -->
             <div id="chat-response" class="chat-response"></div>
           </div>
+          <p class="chat-footnote">
+            Last updated: {profile.last_updated}
+          </p>
+          <p class="chat-footnote">Powered by Google's Gemini</p>
         </div>
       </section>
     </main>
+    <ContactCTA />
   </div>
 
   <style>
@@ -77,11 +85,11 @@ import BaseLayout from '../layouts/BaseLayout.astro'
       font-weight: 700;
     }
 
-    .content-subtitle {
+    .chat-footnote {
       font-size: var(--text-md);
       color: var(--gray-200);
       font-style: italic;
-      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
     }
 
     @media (min-width: 50em) {
@@ -98,13 +106,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
       }
     }
 
-    /* --- New Chat-Specific Styles --- */
+    /* --- ChatBot-Specific Styles --- */
 
-    /* Icon next to the section title */
     .chat-icon {
-      width: 1.5rem;
+      width: auto;
       height: auto;
       vertical-align: middle;
+      border-radius: 1rem;
     }
 
     .chat-container {
