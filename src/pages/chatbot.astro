@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import ContactCTA from '../components/ContactCTA.astro'
 import Hero from '../components/Hero.astro'
 import profile from '../../netlify/functions/profile.json'
-import chatbotScript from '../../scripts/chatbot.ts?raw'
 ---
 
 <BaseLayout
@@ -194,8 +193,7 @@ import chatbotScript from '../../scripts/chatbot.ts?raw'
   </style>
 
   <script is:inline type="module">
-    {
-      chatbotScript
-    }
+    import { initChatBot } from '/src/scripts/chatbot.ts'
+    initChatBot()
   </script>
 </BaseLayout>
