@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-
 import ContactCTA from '../components/ContactCTA.astro'
 import Hero from '../components/Hero.astro'
 import profile from '../../netlify/functions/profile.json'
+import chatbotScript from '../../scripts/chatbot.ts?raw'
 ---
 
 <BaseLayout
@@ -11,17 +11,21 @@ import profile from '../../netlify/functions/profile.json'
   description="Personal ChatBot using Google's Gemini API and Netlify functions"
 >
   <div class="stack gap-20">
-    <main class="wrapper about">
+    <main class="wrapper chatbot">
       <header class="hero">
         <Hero
           title="ChatBot"
-          tagline="I am Juan's personal ChatBot assistant."
+          tagline="Hi, I'm Juan's personal ChatBot assistant ^^"
           align="start"
         />
       </header>
       <section>
         <h1 class="section-title">
-          <img src="/assets/chatbot.webp" alt="Chat icon" class="chat-icon" />
+          <img
+            src="/assets/chatbot.webp"
+            alt="ChatBot icon"
+            class="chat-icon"
+          />
         </h1>
         <div class="content">
           <!-- Chat Container -->
@@ -38,7 +42,7 @@ import profile from '../../netlify/functions/profile.json'
               <button type="submit" class="chat-submit">Send</button>
             </form>
 
-            <!-- Where we show the chatbot's reply -->
+            <!-- Where the ChatBot's reply is shown -->
             <div id="chat-response" class="chat-response"></div>
           </div>
           <p class="chat-footnote">
@@ -52,8 +56,7 @@ import profile from '../../netlify/functions/profile.json'
   </div>
 
   <style>
-    /* --- Existing about page styles --- */
-    .about {
+    .chatbot {
       display: flex;
       flex-direction: column;
       gap: 3.5rem;
@@ -93,11 +96,11 @@ import profile from '../../netlify/functions/profile.json'
     }
 
     @media (min-width: 50em) {
-      .about {
+      .chatbot {
         display: grid;
         grid-template-columns: 1fr 60% 1fr;
       }
-      .about > :global(:first-child) {
+      .chatbot > :global(:first-child) {
         grid-column-start: 2;
       }
       section {
@@ -105,8 +108,6 @@ import profile from '../../netlify/functions/profile.json'
         font-size: var(--text-lg);
       }
     }
-
-    /* --- ChatBot-Specific Styles --- */
 
     .chat-icon {
       width: auto;
@@ -131,7 +132,6 @@ import profile from '../../netlify/functions/profile.json'
       gap: 1rem;
     }
 
-    /* Style the textarea for user input */
     .chat-form textarea {
       width: 100%;
       padding: 0.75rem 1rem;
@@ -148,27 +148,41 @@ import profile from '../../netlify/functions/profile.json'
       color: var(--gray-200);
     }
 
-    /* The submit button */
     .chat-submit {
       align-self: flex-end;
-      padding: 0.6rem 1.2rem;
+      padding: 0.8rem 1.5rem;
       border: none;
       border-radius: 0.5rem;
       font-size: var(--text-md);
       font-weight: 600;
       cursor: pointer;
-
-      /* If you have a --primary-500 color, you can use it here: */
-      background: var(--primary-500);
-      color: var(--gray-0);
-
-      transition: background 0.2s ease;
+      background: #7611a6;
+      color: #fff;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+      box-shadow: 0 4px 16px rgba(118, 17, 166, 0.4);
     }
+
     .chat-submit:hover {
-      filter: brightness(0.9);
+      background: #8e2ec1;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(142, 46, 193, 0.6);
     }
 
-    /* The chat bubble for chatbot responses */
+    .chat-submit:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(118, 17, 166, 0.3);
+    }
+
+    .chat-submit:focus {
+      outline: none;
+      box-shadow:
+        0 0 0 3px rgba(142, 46, 193, 0.5),
+        0 6px 24px rgba(118, 17, 166, 0.6);
+    }
+
     .chat-response {
       background: var(--gray-800);
       padding: 1rem;
@@ -179,31 +193,9 @@ import profile from '../../netlify/functions/profile.json'
     }
   </style>
 
-  <!-- The script to POST user input to your Netlify function -->
-  <script>
-    document
-      .querySelector('#chat-form')
-      .addEventListener('submit', async (e) => {
-        e.preventDefault()
-
-        const textarea = document.querySelector('#message')
-        const message = textarea.value.trim()
-        if (!message) return
-
-        try {
-          const res = await fetch('/.netlify/functions/chatbot', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message }),
-          })
-          const data = await res.json()
-          document.getElementById('chat-response').textContent = data.reply
-        } catch (err) {
-          document.getElementById('chat-response').textContent =
-            'Error: ' + (err.message || 'Unknown error')
-        }
-
-        textarea.value = ''
-      })
+  <script is:inline type="module">
+    {
+      chatbotScript
+    }
   </script>
 </BaseLayout>
