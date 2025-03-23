@@ -8,7 +8,7 @@ Welcome to my web portfolio including a personal ChatBot assistant 🌐
 - Deployed on: [Netlify](https://www.netlify.com/).
 - ChatBot powered by: [Google's Gemini](https://gemini.google.com/)
 
-Visit my portfolio at [https://jriverosesma.netlify.app](https://jriverosesma.netlify.app/).
+Visit my portfolio at: [https://jriverosesma.netlify.app](https://jriverosesma.netlify.app/)
 
 ## Commands
 
