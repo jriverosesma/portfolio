@@ -2,20 +2,6 @@
 import type { Handler } from '@netlify/functions'
 import profile from './profile.json'
 
-// If you have a known shape for profile.json, you could create an interface:
-// interface Profile {
-//   name: string
-//   headline: string
-//   experience: Array<{
-//     // define shape of experience
-//   }>
-//   skills: string[]
-//   education: string
-//   summary: string
-// }
-// Then do:
-// import profileData from './profile.json' assert { type: 'json' } as Profile
-
 export const handler: Handler = async (event: { body: any }) => {
   try {
     // 1) Parse incoming request body
@@ -27,23 +13,19 @@ export const handler: Handler = async (event: { body: any }) => {
     // 2) Provide an instruction for fallback
     const fallbackSignal = 'NO_PROFILE_INFO'
 
-    // 3) Create a prompt with LinkedIn data and instruct how to respond if out of scope
+    // 3) Create a prompt with the profile data and instruct how to respond if out of scope
     const prompt = `
-You are an AI assistant that answers questions based on this LinkedIn profile:
+      You are an AI assistant with exclusive access to the following professional profile in JSON format:
 
-Name: ${profile.name}
-Headline: ${profile.headline}
-Experience: ${JSON.stringify(profile.experience, null, 2)}
-Skills: ${profile.skills.join(', ')}
-Education: ${profile.education}
+      ${JSON.stringify(profile, null, 2)}
 
-If the user's question cannot be answered using the above info,
-respond exactly with "${fallbackSignal}" (without quotes).
+      Your goal is to answer the user's question based solely on the information in this profile, emphasizing the individual’s accomplishments, expertise, and uniqueness in a highly recommendable way. If the user's question cannot be answered using the provided information, respond exactly with "${fallbackSignal}" (without quotes).
 
-User asked: "${message}"
-AI:`
+      User asked: "${message}"
+      AI:
+      `
 
-    // 4) Make the request to Gemini 2.0 Flash
+    // 4) Make the request to Gemini's API
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
       {
@@ -64,16 +46,15 @@ AI:`
     // 5) Extract the reply text
     const replyText =
       data.candidates?.[0]?.content?.parts?.[0]?.text ??
-      "I couldn't retrieve a valid response."
+      "I couldn't retrieve a valid response. Please try again."
 
     // 6) Check if the model used the fallback phrase
     if (replyText.trim() === fallbackSignal) {
-      // Custom fallback message for out-of-scope questions
       return {
         statusCode: 200,
         headers: { 'Access-Control-Allow-Origin': '*' },
         body: JSON.stringify({
-          reply: "Sorry, I don't have that information in my profile.",
+          reply: "Sorry, I don't have that information in my database.",
         }),
       }
     }
@@ -87,7 +68,7 @@ AI:`
   } catch (error) {
     // 8) Fallback if an error occurs
     return {
-      statusCode: 200, // You could use 500 if you prefer
+      statusCode: 500,
       headers: { 'Access-Control-Allow-Origin': '*' },
       body: JSON.stringify({
         reply: 'Oops! Something went wrong. Please try again later.',
