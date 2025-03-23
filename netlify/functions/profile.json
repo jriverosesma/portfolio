@@ -6,19 +6,166 @@
     {
       "company": "Airbus",
       "role": "Machine Learning Engineer",
-      "years": "2021-Present"
+      "dates": "2022-Present",
+      "location": "Toulouse, France",
+      "description": {
+        "overview": "Leading a passionate R&T team to conceive and develop embeddable and certifiable Computer Vision algorithms for future Airbus avionics.",
+        "tasks": [
+          "Define activities and workplan",
+          "Coordinate with other work packages",
+          "Manage activities of a local team and co-develop an industrial product with a cross-Atlantic team in Silicon Valley",
+          "Interact with Airbus internal stakeholders to find synergies and share workforce",
+          "Collaborate with external organizations to enhance final product"
+        ],
+        "technical_tasks": [
+          "Explore and implement new algorithms that combine Neural Networks and classic image processing",
+          "Perform object detection, key point detection, segmentation, tracking, and 3D pose estimation",
+          "Train Neural Network models (bridging synthetic and real data) on cloud infrastructure (AWS)",
+          "Apply Neural Network compression (quantization, pruning)",
+          "Model camera sensors",
+          "Write algorithm technical specification documents"
+        ]
+      }
     },
     {
       "company": "Collins Aerospacde",
       "role": "Machine Learning Engineer",
-      "years": "April 2021-  October 2020"
+      "dates": "2021-2022",
+      "location": "Toulouse, France",
+      "description": {
+        "overview": "Helicopter embedded real-time AI system for obstacle detection.",
+        "tasks": [
+          "Adapt state-of-the-art object detection and segmentation solutions",
+          "Adapt state-of-the-art anomaly detection solutions",
+          "Perform image processing and stereo vision for 3D",
+          "Develop a real-time AI-powered solution for helicopter obstacle detection"
+        ]
+      }
+    },
+    {
+      "company": "Universidad Politécnica de Madrid",
+      "role": "Software Developer and Data Scientist",
+      "dates": "2019-2020",
+      "location": "Madrid, Spain",
+      "description": {
+        "overview": "Implementation and Statistical Analysis of an Algorithmic Trading Strategy Based on Divergences.",
+        "tasks": [
+          "Conducted statistical analysis of 15+ years of EUR/USD data in minute intervals (Python, Pandas, NumPy, Matplotlib)",
+          "Accelerated code using Numba compiler",
+          "Developed and implemented an algorithmic trading strategy (live forecasting and backtesting)",
+          "Performed statistical analysis and optimization, using financial performance indicators",
+          "Created visualizations and reports using Python, MATLAB, Excel"
+        ]
+      }
+    },
+    {
+      "company": "Freelance",
+      "role": "Private Teacher",
+      "years": "2018-2019",
+      "location": "Ciudad Real, Spain",
+      "description": {
+        "overview": "Statistics for the Social Sciences (6 ECTS). Prepared the student with deeper insight to pass the final exam.",
+        "tasks": [
+          "Covered and taught the entire subject using both student-supplied and self-created materials"
+        ]
+      }
     }
   ],
-  "skills": [
+  "technical_skills": [
     "Machine Learning",
     "Computer Vision",
     "Natural Language Processing",
-    "Software development"
+    "Software development",
+    "Python",
+    "C",
+    "C++",
+    "SQL",
+    "Statistics",
+    "Git",
+    "Agile",
+    "Project Management"
   ],
-  "education": "MSc in Computer Science from ISAE Supaero, Toulouse (France)"
+  "soft_skills": [
+    "Team Player",
+    "Eye for detail",
+    "Leadership",
+    "User/Customer Focus",
+    "Lifelong Learner",
+    "High Integrity",
+    "Responsibility",
+    "Commitment",
+    "Motivation",
+    "Troubleshooting",
+    "Accountability",
+    "Adaptability"
+  ],
+  "education": [
+    {
+      "title": "MSc in Computer Science from ISAE Supaero, Toulouse (France)",
+      "institution": "ISAE Supaero",
+      "location": "Toulouse, France",
+      "dates": "2019 - 2021",
+      "description": {
+        "activities_and_societies": ["Music Club (guitarist and bassist)"],
+        "major": "Informatics, Telecommunications and Networks + Avionic Systems Architect (Thales Avionics - Chaire ARISE)",
+        "minor": "Autonomous Systems (specialised in Drones)",
+        "project": "Drone automatic inspection of structures, in collaboration with Sterblue.",
+        "courses": [
+          "IT and Network Architecture",
+          "IT Systems and Network Security",
+          "Real Time Systems",
+          "Distributed Systems",
+          "Systems Engineering",
+          "MBSE",
+          "Embedded Systems",
+          "Avionic Architecture",
+          "Navigation",
+          "Signal Processing",
+          "Engineering of Decision for Autonomous Systems",
+          "Energetic Transition",
+          "Intercultural Workshop",
+          "Philosophy of Technology"
+        ]
+      }
+    },
+    {
+      "title": "BSc in Aerospace Engineering",
+      "institution": "Universidad Politécnica de Madrid",
+      "location": "Madrid, Spain",
+      "dates": "2015 - 2019",
+      "description": {
+        "specialisation": "Aerospace Science and Technologies",
+        "project": "Implementation and Statistical Analysis of an Algorithmic Trading Strategy Based on Divergences (Grade: 10/10)",
+        "courses": [
+          "Fluid Mechanics",
+          "Aerodynamics",
+          "Flight Mechanics",
+          "Orbital Mechanics (with Special Honours)",
+          "Aeroelasticity",
+          "Aerospace Vehicles",
+          "Control Theory",
+          "Optimisation Algorithms",
+          "Statistics",
+          "Missiles",
+          "Vibration",
+          "Classical Mechanics",
+          "Analytical Mechanics",
+          "Thermodynamics",
+          "Electronics",
+          "Numerical Analysis",
+          "FEM",
+          "CFD",
+          "Turboengines",
+          "Rocket Engines",
+          "Electrical Engineering",
+          "Project Management"
+        ]
+      }
+    }
+  ],
+  "languages": ["English", "French", "Spanish"],
+  "patents": [
+    "J. Rivero-Sesma, “Improved method for assisting with landing an aircraft and system configured to execute the method,” Patent AHB-5761-145, 2023.",
+    "J. Rivero-Sesma, “Method for assisting the landing of an aircraft and system configured for executing same,” Patent 3122.0016, 2023."
+  ]
 }
