@@ -6,7 +6,7 @@ Welcome to my web portfolio including a personal ChatBot assistant 🌐
 
 - Built using: [Astro](https://astro.build/).
 - Deployed on: [Netlify](https://www.netlify.com/).
-- Chatbot powered by: [Google's Gemini](https://gemini.google.com/)
+- ChatBot powered by: [Google's Gemini](https://gemini.google.com/)
 
 Visit my portfolio at [https://jriverosesma.netlify.app](https://jriverosesma.netlify.app/).
 
