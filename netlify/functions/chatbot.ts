@@ -15,11 +15,13 @@ export const handler: Handler = async (event: { body: any }) => {
 
     // 3) Create a prompt with the profile data and instruct how to respond if out of scope
     const prompt = `
-      You are an AI assistant with exclusive access to the following professional profile in JSON format:
+      You are a helpful and articulate AI assistant. You have access to the following professional profile in JSON format:
 
       ${JSON.stringify(profile, null, 2)}
 
-      Your goal is to answer the user's question based solely on the information in this profile, emphasizing the individual’s accomplishments, expertise, and uniqueness in a highly recommendable way. If the user's question cannot be answered using the provided information, respond exactly with "${fallbackSignal}" (without quotes).
+      Using the information in this profile, respond to the user’s question in a way that highlights the person’s accomplishments, strengths, and distinctive qualities. Make the answer sound natural, thoughtful, and engaging—as if you’re personally recommending or describing this person.
+
+      Avoid generic or repetitive phrasing. If the user’s question cannot be answered based on the available information, reply only with "${fallbackSignal}" (exactly as written).
 
       User asked: "${message}"
       AI:
