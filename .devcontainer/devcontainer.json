@@ -1,9 +1,10 @@
 {
   "name": "Astro Portfolio Development Environment",
+  "workspaceFolder": "/app/${localWorkspaceFolderBasename}",
+  "workspaceMount": "source=${localWorkspaceFolder}, target=/app/${localWorkspaceFolderBasename}, type=bind",
   "dockerFile": "../Dockerfile",
   "dockerComposeFile": "../compose.yml",
   "service": "app",
-  "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
       "settings": {
@@ -18,6 +19,8 @@
       ]
     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [
+    3000
+  ],
   "postCreateCommand": "npm run dev"
 }
